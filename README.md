@@ -51,7 +51,7 @@ make
 You can include `MyLib` as a Git **submodule** in your project. Inside your project directory:
 
 ```sh
-git submodule add <your-repo-url> lib/MyLib
+git submodule add https://github.com/saksoy-engits/MyLib.git lib/MyLib
 git commit -m "Added MyLib as a submodule"
 ```
 

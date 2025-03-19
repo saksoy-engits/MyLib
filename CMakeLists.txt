@@ -1,8 +1,16 @@
-cmake_minimum_required(VERSION 3.10)
-project(MyLib)
+cmake_minimum_required(VERSION 3.15)
+project(MyLib CXX)
 
-set(CMAKE_CXX_STANDARD 17)
+# If the special flag is enabled, add a compile definition.
+if(DEFINED MYLIB_SPECIAL_FLAG AND MYLIB_SPECIAL_FLAG)
+  add_compile_definitions(SPECIAL_FLAG_ENABLED)
+endif()
 
-add_library(MyLib src/MyLib.cpp)
+# Create a static library target for MyLib
+add_library(MyLib STATIC src/MyLib.cpp)
 
-target_include_directories(MyLib PUBLIC include)
+# Include the MyLib public headers
+target_include_directories(MyLib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+# Require C++17 (adjust as necessary)
+target_compile_features(MyLib PRIVATE cxx_std_17)

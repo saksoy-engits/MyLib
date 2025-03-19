@@ -1,6 +1,10 @@
 #ifndef MYLIB_H
 #define MYLIB_H
 
-void myLibFunction();
+#pragma once
+
+namespace MyLib {
+    void say_hello();
+}
 
 #endif
